@@ -1,9 +1,7 @@
 #include <iostream>
 
 int main()
-{
-	const short n1 = 10000; //создаю массив
-	int mas[n1];
+{	int mas[1000];
 	std::cout << "enter lenth: ";
 	short len;
 	std::cin >> len;
@@ -15,42 +13,46 @@ int main()
 		mas[i] = numb;
 	}
 
-	short sum = 0;
-	short no19 = 0;
-	for(short i = 0; i < len; i++)//проверяю есть ли число с суммой цифр 19
+	int mas1[1000];//создаю массив с суммой цифр чисел из 1-го массива
+	for(short i = 0; i < len; i++) 
 	{
 		int k = mas[i];
+		short sum = k % 10;
 		while(k > 9)
 		{
-			sum += (k % 10);
 			k /= 10;
+			sum += k % 10;
 		}
-		if (sum == 19)
-		{
-			no19 += 1;
-			break;
-		}
-		else
-		{
-			sum = 0;
-		}
+		mas1[i] = sum;
 	}
 
-	if(no19 == 0)//сортировка
-	{
-		for(short i=0; i < len-1; i++)
-			for(short j=i+1; j < len; j++)
-				if(mas[i] < mas[j])
+	for(short i = 0; i < len - 1; i++)//ультра супер-умпер-пупер мега сортировка
+		for(short j=i+1; j < len; j++)
+			{
+				if (mas1[i] > mas1[j])
 				{
 					int tmp = mas[i];
 					mas[i] = mas[j];
 					mas[j] = tmp;
+					tmp = mas1[i];
+					mas1[i] = mas1[j];
+					mas1[j] = mas1[i];
 				}
-	}
-
-	for(short i = 0; i < len; i++)
-	{
-		std::cout << mas[i] << std::endl;
-	}
+				else if (mas1[i] == mas1[j])
+				{
+					int k = mas[i];
+					while(k > 9)
+						k /= 10;
+					short firstDigit = k;
+					k = mas[j];
+					while(k > 9)
+						k /= 10;
+					short firstDigit1 = k;
+					if(firstDigit > firstDigit1)
+					{
+						//доделывай >:(
+					}
+				}
+			}
 	return 0;
 }
