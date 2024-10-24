@@ -1,8 +1,4 @@
-#include <iostream>
-#include <math.h>//для третьей задачи
-
-int main()
-{	
+/* Задача 3
 	int mas[100][100];
 	std::cout << "enter heith: ";
 	short hei;
@@ -53,5 +49,4 @@ int main()
 		}
 		std::cout << "" << std::endl;
 	}
-	return 0;
-}
+	*/
