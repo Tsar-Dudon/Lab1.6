@@ -80,5 +80,4 @@
 	{
 		std::cout << mas[i] << std::endl;
 	}
-	return 0;
 	*/
