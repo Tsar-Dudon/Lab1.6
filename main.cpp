@@ -29,7 +29,7 @@ int main()
 	for(short i = 0; i < len - 1; i++)//ультра супер-умпер-пупер мега сортировка
 		for(short j=i+1; j < len; j++)
 			{
-				if (mas1[i] > mas1[j])
+				if (mas1[i] > mas1[j])//сравнение сумм цифр чисел
 				{
 					int tmp = mas[i];
 					mas[i] = mas[j];
@@ -38,21 +38,49 @@ int main()
 					mas1[i] = mas1[j];
 					mas1[j] = mas1[i];
 				}
-				else if (mas1[i] == mas1[j])
+				else if (mas1[i] == mas1[j])//сумма цифр одинаковая - сравниваю первые цифры
 				{
-					int k = mas[i];
+					int k = mas[i];//первая цифра первого числа
 					while(k > 9)
 						k /= 10;
 					short firstDigit = k;
-					k = mas[j];
+					k = mas[j];//первая цифра второго числа
 					while(k > 9)
 						k /= 10;
 					short firstDigit1 = k;
-					if(firstDigit > firstDigit1)
+					if(firstDigit > firstDigit1)//сравниваю
 					{
-						//доделывай >:(
+						int tmp = mas[i];
+						mas[i] = mas[j];
+						mas[j] = tmp;
+						tmp = mas1[i];
+						mas1[i] = mas1[j];
+						mas1[j] = mas1[i];
 					}
+					else if(firstDigit == firstDigit1)//первая цифра одинаковая - сравниваю сами числа
+					{
+						if(mas[i] > mas[j])
+						{
+							int tmp = mas[i];
+							mas[i] = mas[j];
+							mas[j] = tmp;
+							tmp = mas1[i];
+							mas1[i] = mas1[j];
+							mas1[j] = mas1[i];
+						}
+						else
+							continue;
+					}
+					else
+						continue;
 				}
+				else
+					continue;
 			}
+	
+	for(short i = 0; i < len; i++)//вывожу отсортированный массив
+	{
+		std::cout << mas[i] << std::endl;
+	}
 	return 0;
 }
