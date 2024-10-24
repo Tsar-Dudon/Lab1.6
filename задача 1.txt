@@ -1,0 +1,47 @@
+/*  Задача 1
+	int mas[10000];
+	std::cout << "enter lenth: ";
+	short len;
+	std::cin >> len;
+
+	int numb;
+	for(short i = 0; i < len; i++) //добавляю значения в массив
+	{
+		std::cin >> numb;
+		mas[i] = numb;
+	}
+
+	bool no19 = true;//проверка на 19
+	for(short i = 0; i < len; i++) 
+	{
+		int k = mas[i];
+		short sum = k % 10;
+		while (k > 9)
+		{
+			k /= 10;
+			sum += k % 10;
+		}
+		if (sum == 19)
+		{
+			no19 = false;
+			break;	
+		}
+	}
+
+	if(no19)//сортировка
+	{
+		for(short i=0; i < len-1; i++)
+			for(short j=i+1; j < len; j++)
+				if(mas[i] < mas[j])
+				{
+					int tmp = mas[i];
+					mas[i] = mas[j];
+					mas[j] = tmp;
+				}
+	}
+
+	for(short i = 0; i < len; i++)
+	{
+		std::cout << mas[i] << std::endl;
+	}
+	*/
