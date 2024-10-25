@@ -3,55 +3,57 @@
 
 int main()
 {	
-	int mas[100][100];
-	std::cout << "enter heith: ";
-	short hei;
-	std::cin >> hei;
+	/* Задача 4
+	int mas[10000];
 	std::cout << "enter lenth: ";
 	short len;
 	std::cin >> len;
 
 	int numb;
-	for(short n = 0; n < hei; n++)
+	for(short i = 0; i < len; i++) //добавляю значения в массив
 	{
-		for(short m = 0; m < len; m++)
-		{
-			std::cin >> numb;
-			mas[n][m] = numb;
-		}
+		std::cin >> numb;
+		mas[i] = numb;
 	}
 
-	int sum = 0;
-	int newsum = 0;
-	int stroka = 0;
-	for(short n = 0; n < hei; n++)
+	short j = 0;
+	for(short i = 0; i < len; i++)
 	{
-		newsum = 0;
-		for(short m = 0; m < len; m++)
-		{
-			newsum += mas[n][m];
-		}
-		if(abs(newsum) > abs(sum))
-		{
-			sum = newsum;
-			stroka = n;
-		}
-		else
+		int firstDigit = mas[i];
+		while(firstDigit > 9)
+			{
+				firstDigit /= 10;
+			}
+		int lastDigit = mas[i] % 10;
+		if(firstDigit == lastDigit)
 			continue;
+		mas[j] = mas[i];
+		j++;
 	}
+	len = j;
 
-	for(short m = 0; m < len; m++)
+	for(short i = 0; i < len; i++)
 	{
-		mas[stroka][m] = 9999;
-	}
-
-	for(short n = 0; n < hei; n++)
-	{
-		for(short m = 0; m < len; m++)
+		int firstDigit = mas[i];
+		while(firstDigit > 9)
 		{
-			std::cout << mas[n][m] << " ";
+			firstDigit /= 10;
 		}
-		std::cout << "" << std::endl;
+		if(firstDigit == 3)
+		{
+			for(j = len; j > i; j--)
+			{
+				mas[j] = mas[j - 1];
+			}
+			i++;
+			len++;
+		}
 	}
+
+	for(short i = 0; i < len; i++)
+	{
+		std::cout << mas[i] << std::endl;
+	}
+*/
 	return 0;
 }
